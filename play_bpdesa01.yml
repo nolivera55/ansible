@@ -1,0 +1,19 @@
+---
+
+- hosts: bpdesa01
+  tasks:
+  - name: Busco  *sh
+    shell: 'ls -1 *sh' 
+    register: contents 
+  - name: Muestro1
+    debug: var=contents.stdout_lines
+  - name: Copio
+    copy: 
+      src: '/nethome/cecom/nolivera/*.sh'
+      dest: /nethome/cecom/nolivera/respaldo_old
+      remote_src: yes
+  - name: Busco *log
+    shell: 'ls -lrt /nethome/cecom/nolivera/respaldo_old/'
+    register: sal3
+  - name: Veo resultado
+    debug: var=sal3.stdout_lines  

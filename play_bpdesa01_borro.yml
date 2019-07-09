@@ -1,0 +1,19 @@
+---
+
+- hosts: bpdesa01
+  tasks:
+  - name: Busco *log 
+    shell: 'ls -lrt '
+    register: sal2
+  - name: Veo resultado
+    debug: var=sal2.stdout_lines 
+  - shell: 'ls -1 *gz' 
+    register: contents 
+
+  - file: path={{ item }} state=absent 
+    with_items: "{{ contents.stdout_lines }}" 
+  - name: Busco *log
+    shell: 'ls -lrt '
+    register: sal3
+  - name: Veo resultado
+    debug: var=sal3.stdout_lines  
