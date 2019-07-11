@@ -1,9 +1,9 @@
 ---
 
-- hosts: bpdesa01
+- hosts: all
   tasks:
-  - name: Busco  *sh
-    shell: 'ls -1 *sh' 
+  - name: Busco  *
+    shell: 'ls -1 *' 
     register: contents 
   - name: Muestro1
     debug: var=contents.stdout_lines
