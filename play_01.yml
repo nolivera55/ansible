@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  tasks:
+  - name: Busco  *
+    shell: 'ls *' 
+    register: contents 
+  - name: Muestro1
+    debug: var=contents.stdout_lines
+  - name: Copio
+    copy: 
+      src: '/home/ansible/.ssh/*.rsa'
+      dest: /home/ansible/copia_rsa
+      remote_src: yes
+  
