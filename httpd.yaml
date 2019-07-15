@@ -11,7 +11,7 @@
     register: timestamp_end
   - debug: var=timestamp_end
 
- - name: verify that the web service is running
+  - name: verify that the web service is running
     command: systemctl status httpd.service
     register: result
   - debug: var=result
