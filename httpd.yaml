@@ -10,13 +10,8 @@
     command: systemctl restart httpd.service
     register: timestamp_end
   - debug: var=timestamp_end
-    
-  - name: Open port 80 for http access
-    firewalld:
-      service: http
-      permanent: true
-      state: enabled
-  - name: Restart the firewalld service to load in the firewall changes
-    service: 
-      name: firewalld 
-      state: restarted
+
+ - name: verify that the web service is running
+    command: systemctl status httpd.service
+    register: result
+  - debug: var=result
