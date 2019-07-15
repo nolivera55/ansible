@@ -7,9 +7,10 @@
       name: httpd
       state: present
   - name: ensure httpd is running
-    service:
-      name: httpd 
-      state: restarted
+    command: systemctl restart httpd.service
+    register: timestamp_end
+  - debug: var=timestamp_end
+    
   - name: Open port 80 for http access
     firewalld:
       service: http
