@@ -4,8 +4,11 @@
   tasks:
   - name: Recopilar IPs
     shell: /sbin/ifconfig | grep inet.*cast
+    register: contents 
+  - name: Muestro1
+    debug: var=contents.stdout_lines
     
-- hosts: fedora
+- hosts: Fedora
  
   tasks:
   - name: Install Vim
