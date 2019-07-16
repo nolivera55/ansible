@@ -6,13 +6,13 @@
     apt:
       name: apache2
       state: present
-  - name: ensure httpd is running
-    command: systemctl restart httpd.service
+  - name: ensure apache is running
+    command: systemctl restart apache2.service
     register: timestamp_end
   - debug: var=timestamp_end
 
   - name: verify that the web service is running
-    command: systemctl status httpd.service
+    command: systemctl status apache2.service
     register: result
   - debug: var=result
 
