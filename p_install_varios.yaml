@@ -8,10 +8,7 @@
 - hosts: fedora
  
   tasks:
-  - name: Install Nginx
-    yum: pkg=nginx state=installed update_cache=true
-    notify: Start Nginx
+  - name: Install Vim
+    yum: name=vim state=installed update_cache=true
+    
  
- handlers:
-  - name: Start Nginx
-   service: name=nginx state=started
