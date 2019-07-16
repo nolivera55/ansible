@@ -1,0 +1,8 @@
+- name: Desinstalo Aplicacion Apache
+  hosts: ubuntu
+  tasks:
+  - name: Delete resource Apache
+    yum 
+    name: apache2
+    state: absent
+    force: true
