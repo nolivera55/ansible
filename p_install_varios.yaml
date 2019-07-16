@@ -1,0 +1,17 @@
+---
+- hosts: all
+  
+  tasks:
+  - name: Recopilar IPs
+    shell: /sbin/ifconfig | grep inet.*Bcast
+    
+- hosts: fedora
+ 
+  tasks:
+  - name: Install Nginx
+    yum: pkg=nginx state=installed update_cache=true
+    notify: Start Nginx
+ 
+ handlers:
+  - name: Start Nginx
+   service: name=nginx state=started
