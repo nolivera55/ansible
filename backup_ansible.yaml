@@ -6,8 +6,8 @@
      shell: /bin/tar -cvf /tmp/respaldo{{ ansible_hostname }}.tar /home/ansible
     
    - name: Copy Remote-To-hosts
-     synchronize: dest=/home/ansible/backups/ src=/tmp/respaldo*tar
-     delegate_to: 10.0.2.19
+     synchronize: src=/tmp/respaldo*tar dest=/home/ansible/backups/ 
+     delegate_to: 10.0.2.15
    - name: Remove old files foo
      file: path=/tmp/respaldo*.tar state=absent
     
