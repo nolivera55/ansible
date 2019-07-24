@@ -1,0 +1,13 @@
+---
+hosts: all
+tasks:
+   - name: Crear respaldo /home/ansible de cada Equipo 
+    shell: /bin/tar -cvf /tmp/respaldo'$hostname'.tar /home/ansible
+ - hosts: all
+  tasks:    
+   - name: Copy Remote-To-hosts 
+     synchronize: src=/tmp/respaldo*tar  dest=/home/ansible/backups
+    
+   - name: Remove old files foo
+    file: path=/tmp/respaldo*.tar state=absent
+    
