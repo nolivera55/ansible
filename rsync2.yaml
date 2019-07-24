@@ -1,5 +1,5 @@
 ---
-- name: Copy Remote-To-hosts
+- name: Copy Remote
   hosts: 10.0.2.19
   tasks:
      name: Copiar tar
