@@ -8,5 +8,4 @@
        age: 2d
        recurse: yes
        register: contents 
-    - name: Muestro1
-       debug: var=contents.stdout_lines
+   
