@@ -11,5 +11,5 @@
         dest : /tmp/ansible_backups/
         flat : yes
    - name: Remove old files foo
-     file: path=/tmp/respaldo*.tar state=absent
+     file: path=/tmp/respaldo{{ ansible_hostname }}.tar state=absent
     
