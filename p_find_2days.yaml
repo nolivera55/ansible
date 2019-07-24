@@ -1,3 +1,4 @@
+ ---
  - name : Buscar archivos en  /tmp creados hace mas de 2 days
   find :
     paths : /tmp
