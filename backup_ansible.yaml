@@ -3,13 +3,13 @@
   hosts: all
   tasks:
    - name: Crear respaldo /home/ansible de cada Equipo 
-     shell: /bin/tar -cvfz /tmp/respaldo{{ ansible_hostname }}.tar /home/ansible
+     shell: /bin/tar -cvf /tmp/respaldo{{ ansible_hostname }}.tar /home/ansible
     
    - name: Obetener archivo remoto
      fetch :
-        src : /tmp/respaldo*.tar.gz
+        src : /tmp/respaldo*.tar
         dest : /home/ansible/backups/
         flat : yes
    - name: Remove old files foo
-     file: path=/tmp/respaldo*.tar.gz state=absent
+     file: path=/tmp/respaldo*.tar state=absent
     
