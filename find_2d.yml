@@ -1,6 +1,9 @@
  ---
  - name : Buscar archivos en  /tmp creados hace mas de 2 days
-   find :
-    paths : /tmp
-    age : 2d
-    recurse : yes
+ hosts: all 
+ tasks:
+   -name: tareas 1 
+     find :
+       paths : /tmp
+       age : 2d
+       recurse : yes
