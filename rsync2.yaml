@@ -1,6 +1,5 @@
 ---
-- name: Copy Remote
-  hosts: 10.0.2.19
+hosts: 10.0.2.19
   tasks:
      name: Copiar tar
      synchronize: src=/tmp/respaldo*tar.gz dest=/home/ansible/backups/ 
