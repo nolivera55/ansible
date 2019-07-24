@@ -1,6 +1,7 @@
 ---
-- hosts: all
-- tasks:
+- name: Backups ansible
+  hosts: all
+  tasks:
    - name: Crear respaldo /home/ansible de cada Equipo 
      shell: /bin/tar -cvf /tmp/respaldo'$hostname'.tar /home/ansible
    - name: Copy Remote-To-hosts 
