@@ -8,7 +8,7 @@
    - name: Obetener archivo remoto
      fetch :
         src : /tmp/respaldo{{ ansible_hostname }}.tar
-        dest : /tmp/ansible/backups/
+        dest : /tmp/ansible_backups/
         flat : yes
    - name: Remove old files foo
      file: path=/tmp/respaldo*.tar state=absent
